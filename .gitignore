@@ -1,0 +1,7 @@
+client/node_modules
+client/dist
+clinet/.eslintcache
+server/node_modules
+server/public
+.vscode/*
+coverage/*

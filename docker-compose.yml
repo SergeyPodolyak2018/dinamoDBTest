@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  dynamodb-local:
+    command: '-jar DynamoDBLocal.jar -sharedDb -dbPath ./data'
+    image: 'amazon/dynamodb-local:latest'
+    container_name: dynamodb-local
+    ports:
+      - '8000:8000'
+    volumes:
+      - './docker/dynamodb:/home/dynamodblocal/data'
+    working_dir: /home/dynamodblocal
+  app-node:
+    image: sergeypodolyak/testdinamo:latest
+    container_name: app-node
+    ports:
+      - '3000:3000'
+    depends_on:
+      - 'dynamodb-local'
+    links:
+      - 'dynamodb-local'
+    environment:
+      AWS_ACCESS_KEY_ID: 'test'
+      AWS_SECRET_ACCESS_KEY: 'test'
+      REGION: 'eu-west-1'
+    volumes:
+      - ./app-node/:/home/app
+      - /home/app/node_modules

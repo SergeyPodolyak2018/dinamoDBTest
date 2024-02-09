@@ -1,0 +1,41 @@
+{
+  "name": "graphql-react-test",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "prettier-watch": "onchange \"**/*.js\" -- prettier --write {{changed}}"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.507.0",
+    "@aws-sdk/client-s3": "^3.507.0",
+    "@aws-sdk/lib-dynamodb": "^3.509.0",
+    "aws-sdk": "^2.1553.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "graphql": "^15.8.0",
+    "graphql-http": "^1.18.0",
+    "http": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "eslint": "^8.38.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "graphql-tag": "^2.12.6",
+    "jest": "^29.5.0",
+    "jest-chain": "^1.1.6",
+    "nodemon": "^2.0.22",
+    "prettier": "^2.8.7"
+  }
+}
