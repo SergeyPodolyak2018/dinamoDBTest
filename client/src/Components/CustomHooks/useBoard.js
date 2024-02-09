@@ -60,6 +60,19 @@ export default function useBoard() {
   }, []);
 
   const updateCard = async (cardId, cardStatusTarget, cardStatusFrom) => {
+    const cardsMutated = [...cards[cardStatusFrom]];
+    const index = cardsMutated.findIndex((el) => el.id === cardId);
+    if (index !== -1) {
+      cardsMutated.splice(index, 1);
+      const updatedFrom = {
+        [cardStatusFrom]: cardsMutated,
+      };
+      setCards((prev) => ({
+        ...prev,
+        ...updatedFrom,
+      }));
+    }
+
     const resp = await updateCardMut({
       variables: { cardId: cardId, cardStatus: cardStatusTarget },
     });
